@@ -333,7 +333,7 @@
         <!-- 新产品快报 -->
         <div class="index-section">
           <div class="aui-panel index-information">
-            <div class="aui-panel__hd">新产品快报   </div>
+            <div class="aui-panel__hd">新产品快报</div>
             <div class="aui-panel__bd">
               <ul class="index-information__list">
                 <li><strong>[新产品]</strong>OSS发布同城冗余存储产品（公测）</li>
