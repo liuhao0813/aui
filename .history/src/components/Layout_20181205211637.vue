@@ -31,9 +31,8 @@
           </el-breadcrumb>
         </div>
         <div v-show="mainType === 'standard'" class="aui-main__bd">
-          <transition mode="out-in" name="fade">
-            <router-view />
-          </transition>
+          <include src="./templates/pages/index.html"></include>
+          <router-view/>
         </div>
         <!-- tabs 标签页 -->
         <el-dropdown v-show="mainType === 'tabs'" class="aui-main-tabs__tool">
@@ -47,9 +46,7 @@
         <el-tabs v-show="mainType === 'tabs'" class="aui-main-tabs aui-tabs" v-model="mainTabsActive">
           <el-tab-pane label="home" name="home" :closable="false" class="aui-main-tabs__pane--full">
             <svg slot="label" class="aui-content--tabs-icon-nav icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-            <transition mode="out-in" name="fade">
-              <router-view/>
-            </transition>
+            <include src="./templates/pages/index.html" path="."></include>
           </el-tab-pane>
           <el-tab-pane label="标签页2" name="2" closable>标签页2</el-tab-pane>
           <el-tab-pane label="标签页3" name="3" closable>标签页3</el-tab-pane>
@@ -69,7 +66,7 @@
 
 <script>
 
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 import LayoutHeader from '@/components/LayoutHeader'
 import LayoutAside from '@/components/LayoutAside'
@@ -83,9 +80,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['headerSkin', 'asideSkin', 'wrapperCenter', 'headerFixed',
-      'asideFixed', 'asideFold', 'asideTop', 'controlFixed', 'controlOpen',
-      'mainTabsHeaderFixed', 'mainType', 'mainTabsActive'])
+    ...mapState(['headerSkin','asideSkin wrapperCenter headerFixed asideFixed asideFold asideTop controlFixed controlOpen mainTabsHeaderFixed])
   },
   components: {
     LayoutHeader,
@@ -93,7 +88,7 @@ export default {
     LayoutControl,
     LayoutFooter
   },
-  mounted () {
+  created () {
     this.loading = false
   },
   methods: {
@@ -103,10 +98,5 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .2s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
+
 </style>

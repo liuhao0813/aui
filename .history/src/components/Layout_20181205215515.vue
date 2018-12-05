@@ -93,7 +93,7 @@ export default {
     LayoutControl,
     LayoutFooter
   },
-  mounted () {
+  created () {
     this.loading = false
   },
   methods: {

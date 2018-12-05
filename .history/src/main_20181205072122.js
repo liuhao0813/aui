@@ -2,9 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import ElementUI from 'element-ui'
-import router from './router'
-import store from './store'
 import App from './App'
+import router from './router'
 
 import './assets/element-theme/blue/index.css'
 import './assets/scss/skins/blue.scss'
@@ -19,7 +18,6 @@ Vue.use(ElementUI, { size: 'medium', zIndex: 3000 })
 new Vue({
   el: '#app',
   router,
-  store,
   components: { App },
   template: '<App/>'
 })

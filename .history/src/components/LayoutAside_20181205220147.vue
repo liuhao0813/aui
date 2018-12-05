@@ -24,7 +24,7 @@
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-crown"></use></svg>
           <span>基础页面</span>
         </template>
-        <el-menu-item index="basic-login" @click="gotoPageHandle('/login')">
+        <el-menu-item index="basic-login" @click="gotoPageHandle('@@path/pages/login.html')">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>登录</span>
         </el-menu-item>

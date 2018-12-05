@@ -25,10 +25,6 @@ export default new Router({
           component: () => import('@/views/Echarts')
         }
       ]
-    },
-    {
-      path: '/login',
-      component: () => import('@/views/Login')
     }
   ]
 })

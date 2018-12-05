@@ -7,7 +7,7 @@
   <div class="aui-header__bd">
     <!-- aui-header__menu left -->
     <el-menu class="aui-header__menu aui-header__menu--left" mode="horizontal">
-      <el-menu-item v-if="!asideTop" index="1" @click="asideFoldHandler">
+      <el-menu-item v-if="!asideTop" index="1" @click="asideFold = !asideFold">
         <svg class="icon-svg aui-header__icon-menu aui-header__icon-menu--rz180" aria-hidden="true"><use xlink:href="#icon-outdent"></use></svg>
       </el-menu-item>
     </el-menu>
@@ -43,7 +43,7 @@
         <el-menu-item index="3-1">修改密码</el-menu-item>
         <el-menu-item index="3-2">退出</el-menu-item>
       </el-submenu>
-      <el-menu-item index="1" @click="controlOpenHandler">
+      <el-menu-item index="1" @click="controlOpen = !controlOpen">
         <svg class="icon-svg aui-header__icon-menu" aria-hidden="true"><use xlink:href="#icon-setting"></use></svg>
       </el-menu-item>
     </el-menu>
@@ -60,24 +60,8 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
-
 export default {
-  data () {
-    return {
-      search: '',
-      searchVisible: false
-    }
-  },
-  computed: {
-    ...mapState(['asideTop', 'asideFold', 'controlOpen'])
-  },
-  methods: {
-    ...mapMutations({
-      asideFoldHandler: 'asideFoldMutation',
-      controlOpenHandler: 'controlOpenMutation'
-    })
-  }
+
 }
 </script>
 

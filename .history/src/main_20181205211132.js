@@ -6,6 +6,7 @@ import router from './router'
 import store from './store'
 import App from './App'
 
+
 import './assets/element-theme/blue/index.css'
 import './assets/scss/skins/blue.scss'
 
@@ -19,7 +20,7 @@ Vue.use(ElementUI, { size: 'medium', zIndex: 3000 })
 new Vue({
   el: '#app',
   router,
-  store,
+  store
   components: { App },
   template: '<App/>'
 })

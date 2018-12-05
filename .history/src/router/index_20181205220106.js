@@ -19,16 +19,12 @@ export default new Router({
         {
           path: '/icon',
           component: () => import('@/views/Icon')
-        },
+        }
         {
           path: '/echarts',
           component: () => import('@/views/Echarts')
         }
       ]
-    },
-    {
-      path: '/login',
-      component: () => import('@/views/Login')
     }
   ]
 })

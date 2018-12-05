@@ -95,7 +95,7 @@ export default {
       mainTabsHeaderFixedHandler: 'mainTabsHeaderFixedMutation'
     }),
     skinChangeHandle () {
-
+      
     }
   }
 }

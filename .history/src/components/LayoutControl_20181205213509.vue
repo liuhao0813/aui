@@ -81,22 +81,10 @@ export default {
       'headerSkin', 'asideFixed', 'asideSkin', 'asideTop',
       'mainType', 'mainTabsHeaderFixed'])
   },
-  methods: {
+  methods:{
     ...mapMutations({
-      controlOpenHandler: 'controlOpenMutation',
-      wrapperCenterHandler: 'wrapperCenterMutation',
-      headerFixedHandler: 'headerFixedMutation',
-      headerSkinHandler: 'headerSkinMutation',
-      asideFixedHandler: 'asideFixedMutation',
-      asideSkinHandler: 'asideSkinMutation',
-      asideTopHandler: 'asideTopMutation',
-      controlFixedHandler: 'controlFixedMutation',
-      mainTypeHandler: 'mainTypeMutation',
-      mainTabsHeaderFixedHandler: 'mainTabsHeaderFixedMutation'
-    }),
-    skinChangeHandle () {
-
-    }
+      controlOpenHandler: 'controlOpenMutations'
+    })
   }
 }
 </script>

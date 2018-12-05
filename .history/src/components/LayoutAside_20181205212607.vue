@@ -9,12 +9,12 @@
       :unique-opened="true"
       :collapse-transition="false"
       :mode="asideTop ? 'horizontal' : 'vertical'">
-      <el-menu-item index="home" @click="gotoPageHandle('/admin')">
+      <el-menu-item index="home" @click="gotoPageHandle('@@path/index.html')">
         <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
         <span slot="title">首页</span>
       </el-menu-item>
 
-      <el-menu-item index="icon" @click="gotoPageHandle('/icon')">
+      <el-menu-item index="icon" @click="gotoPageHandle('@@path/pages/icon.html')">
         <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-gift"></use></svg>
         <span slot="title">图标</span>
       </el-menu-item>
@@ -24,7 +24,7 @@
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-crown"></use></svg>
           <span>基础页面</span>
         </template>
-        <el-menu-item index="basic-login" @click="gotoPageHandle('/login')">
+        <el-menu-item index="basic-login" @click="gotoPageHandle('@@path/pages/login.html')">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>登录</span>
         </el-menu-item>
@@ -55,7 +55,7 @@
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-barchart"></use></svg>
           <span>图表</span>
         </template>
-        <el-menu-item index="chart-echarts" @click="gotoPageHandle('/echarts')">
+        <el-menu-item index="chart-echarts" @click="gotoPageHandle('@@path/pages/echarts.html')">
           <svg class="icon-svg aui-aside__menu-icon" aria-hidden="true"><use xlink:href="#icon-fire"></use></svg>
           <span>Echarts</span>
         </el-menu-item>
@@ -130,11 +130,6 @@ export default {
   },
   computed: {
     ...mapState(['asideMenuVisible', 'asideFold', 'asideTop'])
-  },
-  methods: {
-    gotoPageHandle (path) {
-      this.$router.push(path)
-    }
   }
 }
 </script>

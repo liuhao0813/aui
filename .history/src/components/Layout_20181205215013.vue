@@ -31,8 +31,8 @@
           </el-breadcrumb>
         </div>
         <div v-show="mainType === 'standard'" class="aui-main__bd">
-          <transition mode="out-in" name="fade">
-            <router-view />
+          <transition mode="out-in">
+            <router-view/>
           </transition>
         </div>
         <!-- tabs 标签页 -->
@@ -47,7 +47,7 @@
         <el-tabs v-show="mainType === 'tabs'" class="aui-main-tabs aui-tabs" v-model="mainTabsActive">
           <el-tab-pane label="home" name="home" :closable="false" class="aui-main-tabs__pane--full">
             <svg slot="label" class="aui-content--tabs-icon-nav icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
-            <transition mode="out-in" name="fade">
+            <transition mode="out-in">
               <router-view/>
             </transition>
           </el-tab-pane>
@@ -93,7 +93,7 @@ export default {
     LayoutControl,
     LayoutFooter
   },
-  mounted () {
+  created () {
     this.loading = false
   },
   methods: {
@@ -104,7 +104,7 @@ export default {
 
 <style scoped>
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .2s;
+  transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;

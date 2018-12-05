@@ -93,8 +93,11 @@ export default {
     LayoutControl,
     LayoutFooter
   },
+  created () {
+    setTimeout(() => { console.log('enter') }, 5000)
+  },
   mounted () {
-    this.loading = false
+    
   },
   methods: {
   }
