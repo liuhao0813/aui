@@ -1,0 +1,16 @@
+.aui-footer {
+  position: relative;
+  height: $footer--height;
+  padding:  10px 15px;
+  margin-left: $aside--width;
+  text-align: center;
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, .05);
+  color: $color--text-secondary;
+  transition: margin-right .3s, margin-left .3s;
+  p {
+    margin: 10px 0;
+  }
+  a {
+    padding: 0 5px;
+  }
+}

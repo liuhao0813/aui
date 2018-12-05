@@ -1,0 +1,237 @@
+.aui-aside {
+  position: absolute;
+  top: $header--height;
+  bottom: 0;
+  left: 0;
+  z-index: $aside--zindex;
+  width: $aside--width;
+  box-shadow: 1px 0 0 0 rgba(0, 0, 0, .05);
+  background-color: $color--white;
+  overflow: hidden;
+  transition: right .3s, width .3s;
+  &__inner {
+    position: relative;
+    z-index: 1;
+    width: $aside--width + 20px;
+    height: 100%;
+    padding-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: width .3s;
+  }
+  &__menu.el-menu {
+    width: $aside--width;
+    border-right: 0;
+    transition: width .3s;
+  }
+  &__menu.el-menu .el-submenu {
+    position: relative;
+  }
+  &__menu.el-menu .el-menu-item,
+  &__menu.el-menu .el-submenu .el-submenu__title {
+    height: $aside--menu-item-height;
+    line-height: $aside--menu-item-height;
+    color: $color--text-regular;
+    background-color: transparent;
+    &:hover {
+      color: $color--primary;
+    }
+  }
+  &__menu.el-menu .el-menu-item.is-active,
+  &__menu.el-menu .el-submenu.is-active,
+  &__menu.el-menu .el-submenu.is-active .el-menu,
+  &__menu.el-menu .el-submenu.is-opened,
+  &__menu.el-menu .el-submenu.is-opened .el-menu {
+    background-color: $color--primary-light-9;
+  }
+  &__menu.el-menu .el-menu-item.is-active,
+  &__menu.el-menu .el-submenu.is-active > .el-submenu__title,
+  &__menu.el-menu > .el-submenu.is-opened > .el-submenu__title {
+    color: $color--primary;
+  }
+  &__menu.el-menu .el-menu-item i,
+  &__menu.el-menu .el-submenu .el-submenu__title i {
+    color: inherit;
+  }
+  &__menu.el-menu .el-submenu .el-menu--vertical {
+    position: fixed !important;
+  }
+  &__menu.el-menu .el-submenu__icon-arrow {
+    margin-top: -6px;
+  }
+  &__menu-icon {
+    display: inline-block;
+    vertical-align: middle !important;
+    width: 16px;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: inherit;
+    transition: font-size .3s;
+  }
+}
+
+// 黑色
+.aui-aside--dark,
+.aui-aside--dark.aui-aside--top {
+  .aui-aside {
+    box-shadow: none;
+  }
+  .aui-aside,
+  .aui-aside__menu.el-menu,
+  .aui-aside__menu.el-menu .el-menu {
+    background-color: $aside--background-color-dark;
+  }
+  .aui-aside__menu.el-menu .el-menu-item,
+  .aui-aside__menu.el-menu .el-submenu .el-submenu__title {
+    color: $aside--text-color-dark;
+    &:hover {
+      color: $color--white;
+    }
+  }
+  .aui-aside__menu.el-menu .el-menu-item.is-active,
+  .aui-aside__menu.el-menu .el-submenu.is-active,
+  .aui-aside__menu.el-menu .el-submenu.is-active .el-menu,
+  .aui-aside__menu.el-menu .el-submenu.is-opened,
+  .aui-aside__menu.el-menu .el-submenu.is-opened .el-menu {
+    background-color: mix($color--white, $aside--background-color-dark, 5%);
+  }
+  .aui-aside__menu.el-menu .el-menu-item.is-active,
+  .aui-aside__menu.el-menu .el-submenu.is-active > .el-submenu__title,
+  .aui-aside__menu.el-menu > .el-submenu.is-opened > .el-submenu__title {
+    color: $color--white;
+  }
+}
+
+// 固定
+.aui-aside--fixed {
+  .aui-header__hd,
+  .aui-aside {
+    position: fixed;
+  }
+}
+
+// 折叠
+.aui-aside--fold {
+  .aui-header {
+    padding-left: $aside--width-fold;
+  }
+  .aui-header__hd,
+  .aui-header .aui-brand {
+    width: $aside--width-fold;
+  }
+  .aui-header .aui-brand--lg {
+    display: none;
+  }
+  .aui-header .aui-brand--sm {
+    display: flex;
+  }
+  .aui-header__icon-menu--rz180 {
+    transform: rotateZ(180deg);
+  }
+  .aui-aside,
+  .aui-aside__menu.el-menu {
+    width: $aside--width-fold;
+  }
+  .aui-aside__inner {
+    width: $aside--width-fold + 20px;
+  }
+  .aui-aside__menu.el-menu > .el-menu-item > .aui-aside__menu-icon,
+  .aui-aside__menu.el-menu > .el-menu-item > .el-tooltip > .aui-aside__menu-icon,
+  .aui-aside__menu.el-menu > .el-submenu > .el-submenu__title > .aui-aside__menu-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: 0;
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+  }
+  .aui-main {
+    margin-left: $aside--width-fold;
+  }
+  .aui-footer {
+    margin-left: $aside--width-fold;
+  }
+}
+
+// 头部
+.aui-aside--top {
+  &.aui-wrapper {
+    padding-top: $header--height + $aside--top-height;
+  }
+  .aui-header {
+    padding-left: 0;
+  }
+  .aui-header__hd {
+    position: relative;
+    width: auto;
+    padding: 0 15px;
+  }
+  .aui-brand {
+    width: auto;
+  }
+  .aui-aside {
+    right: 0;
+    bottom: auto;
+    width: auto;
+    height: $aside--top-height;
+    padding: 0 15px;
+    overflow: initial;
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, .05);
+  }
+  .aui-aside__inner {
+    width: auto;
+    padding-bottom: 0;
+    overflow: initial;
+  }
+  .aui-aside__menu.el-menu {
+    width: auto;
+    border-bottom: 0 !important;;
+  }
+  .aui-aside__menu.el-menu .el-menu-item,
+  .aui-aside__menu.el-menu .el-submenu .el-submenu__title {
+    height: $aside--top-height;
+    padding: 0 15px;
+    line-height: $aside--top-height;
+    border-bottom: 0 !important;
+  }
+  .aui-aside__menu.el-menu .el-menu-item.is-active,
+  .aui-aside__menu.el-menu .el-submenu.is-active,
+  .aui-aside__menu.el-menu .el-submenu.is-active .el-menu,
+  .aui-aside__menu.el-menu .el-submenu.is-opened,
+  .aui-aside__menu.el-menu .el-submenu.is-opened .el-menu {
+    background-color: $color--white;
+  }
+  .aui-aside__menu.el-menu .el-submenu > .el-menu--horizontal {
+    position: absolute !important;
+  }
+  .aui-aside__menu.el-menu > .el-submenu > .el-menu--horizontal {
+    left: 0 !important;
+  }
+  .aui-aside__menu.el-menu > .el-submenu > .el-menu--horizontal,
+  .aui-aside__menu.el-menu > .el-submenu > .el-menu--horizontal > .el-menu,
+  .aui-aside__menu.el-menu > .el-submenu > .el-menu--horizontal > .el-menu > .el-menu-item {
+    min-width: 100%;
+  }
+  .aui-aside__menu.el-menu .el-submenu__icon-arrow {
+    margin-top: 0;
+  }
+  .aui-main {
+    margin-left: 0;
+  }
+  .aui-main__hd {
+    padding: 20px 15px 5px;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+.aui-aside--top.aui-header--white {
+  .aui-header__hd {
+    background-color: $color--white;
+  }
+  .aui-brand {
+    color: $color--primary;
+  }
+}

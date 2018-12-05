@@ -1,0 +1,162 @@
+// Icon
+.icon-svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+// Button dashed
+.aui-button--dashed {
+  border-style: dashed;
+  background-color: transparent;
+  &:focus,
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+// Brand
+.aui-brand {
+  font-size: $font--size-xxl;
+  font-weight: $font--weight-base;
+}
+
+// Intro
+.aui-intro {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  > li {
+    font-size: $font--size-lg;
+    line-height: 1.5;
+    color: $color--text-secondary;
+  }
+  > li + li {
+    margin-top: 5px;
+  }
+}
+
+// Shortcut
+.aui-shortcut {
+  margin-bottom: 15px;
+  &__title {
+    position: relative;
+    margin: 0 0 15px;
+    font-weight: 400;
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      content: "";
+      height: 1px;
+      margin-top: -.5px;
+      background-color: $border--color-base;
+      overflow: hidden;
+    }
+  }
+  &__title > span {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+    color: $color--text-placeholder;
+    background-color: $color--white;
+  }
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+  }
+  &__list > li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+    font-size: 28px;
+  }
+}
+
+// Panel
+.aui-panel {
+  padding: 15px;
+  border: 1px solid $border--color-lighter;
+  border-radius: $border--radius-base;
+  background-color: $color--white;
+  &__hd {
+    margin-bottom: 15px;
+  }
+  &__hd-other {
+    font-size: $font--size-xs;
+  }
+  &__hd-other > .icon-svg {
+    font-size: $font--size-base;
+  }
+  &__bd {
+    font-size: $font--size-xs;
+  }
+}
+
+// Tabs
+.aui-tabs {
+  &.el-tabs {
+    position: relative;
+  }
+  &.el-tabs > .el-tabs__header {
+    margin-bottom: 0;
+  }
+  &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap  {
+    margin-bottom: 0;
+  }
+  &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-next,
+  &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-prev {
+    line-height: $main--tabs-header-height;
+  }
+  &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__active-bar {
+    display: none;
+  }
+  &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item {
+    padding: 0 15px;
+    vertical-align: inherit;
+    transition: background-color .3s;
+    &:hover {
+      color: $color--primary;
+    }
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      content: "";
+      width: 0;
+      height: 2px;
+      background-color: $color--primary;
+      transition: left .3s cubic-bezier(0.23, 1, 0.320, 1), width .3s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+  }
+  &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item.is-active {
+    color: $color--primary;
+    background-color: $bg--color-base;
+    &:after {
+      left: 0;
+      width: 100%;
+    }
+  }
+  &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item > .icon-svg {
+    font-size: 16px;
+  }
+  &.el-tabs > .el-tabs__content {
+    padding: 15px;
+  }
+}
+.aui-tabs--flex {
+  &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav {
+    display: flex;
+    width: 100%;
+    text-align: center;
+  }
+  &.el-tabs > .el-tabs__header > .el-tabs__nav-wrap > .el-tabs__nav-scroll > .el-tabs__nav > .el-tabs__item {
+    flex: 1;
+  }
+}

@@ -1,0 +1,20 @@
+.aui-page.page-icon {
+  .icon-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0;
+  }
+  .icon-list > li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 15px;
+    min-width: 150px;
+    font-size: 36px;
+    text-align: center;
+  }
+  .icon-classname {
+    margin: 5px 0 0;
+    font-size: $font--size-xs;
+  }
+}

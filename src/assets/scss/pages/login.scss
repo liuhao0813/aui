@@ -1,0 +1,112 @@
+.aui-page.page-login {
+  height: 100vh;
+  background-color: transparent;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &::before,
+  &::after {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    content: "";
+  }
+  &::before {
+    background-image: url(../img/login_bg.jpg);
+    background-size: cover;
+  }
+  &::after {
+    background-color: rgba(38, 50, 56, .6);
+  }
+  .login-wrapper {
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 50px 20px 150px;
+    text-align: center;
+  }
+  .aui-page-header {
+    padding: 15px;
+    color: $color--white;
+  }
+  .aui-brand {
+    margin: 0 0 15px;
+    font-size: 38px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .aui-page-main {
+    width: 420px;
+    padding: 15px 30px;
+    background-color: $color--white;
+  }
+  .lgoin-title {
+    font-size: $font--size-xl;
+    font-weight: normal;
+  }
+  .el-input__prefix .el-input__icon {
+    display: inherit;
+    font-size: $font--size-lg;
+    line-height: $font--line-height-base;
+  }
+  .login-captcha {
+    height: 36px;
+    overflow: hidden;
+  }
+  .login-captcha > img {
+    max-width: 100%;
+    cursor: pointer;
+  }
+  .login-guide {
+    margin: 20px 0;
+    color: $color--text-placeholder;
+  }
+  .aui-page-footer {
+    position: absolute;
+    bottom: 0;
+    padding: 15px;
+    color: $color--text-secondary;
+  }
+  .aui-page-footer p {
+    margin: 10px 0;
+  }
+  .aui-page-footer a {
+    padding: 0 5px;
+  }
+}
+.aui-page.page-login--right-vertical {
+  .login-wrapper {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0;
+  }
+  .aui-page-header {
+    flex: 1;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    padding: 30px 120px;
+    text-align: left;
+  }
+  .aui-page-main {
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    padding: 120px 30px 150px;
+    text-align: center;
+  }
+  .login-guide {
+    margin-top: 0;
+  }
+  .aui-page-footer {
+    right: 0;
+    width: 420px;
+  }
+}

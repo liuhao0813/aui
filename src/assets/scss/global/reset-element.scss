@@ -1,0 +1,16 @@
+// Date
+.el-date-editor .el-range-separator {
+  width: 8%;
+}
+
+// Table
+.el-table th {
+  color: $color--text-primary;
+  background-color: $color--white;
+}
+
+// Pagination
+.el-pagination {
+  margin-top: 15px;
+  text-align: right;
+}
