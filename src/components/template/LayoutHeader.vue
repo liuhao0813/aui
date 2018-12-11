@@ -21,7 +21,7 @@
       <el-menu-item index="3">
         <svg class="icon-svg aui-header__icon-menu" aria-hidden="true"><use xlink:href="#icon-sync"></use></svg>
       </el-menu-item>
-      <el-menu-item index="4">
+      <el-menu-item index="4" @click="toggleFullScreen">
         <svg class="icon-svg aui-header__icon-menu" aria-hidden="true"><use xlink:href="#icon-fullscreen"></use></svg>
       </el-menu-item>
       <el-menu-item index="1" @click="searchVisible = !searchVisible" class="aui-search__toggle">
@@ -31,9 +31,9 @@
         <template slot="title">
           <el-button size="mini">简体中文</el-button>
         </template>
-        <el-menu-item index="2-1">简体中文</el-menu-item>
-        <el-menu-item index="2-2">繁體中文</el-menu-item>
-        <el-menu-item index="2-3">English</el-menu-item>
+        <el-menu-item index="2-1" :disabled="language==='zh'" @click="handleSetLanguage('zh')">简体中文</el-menu-item>
+        <el-menu-item index="2-2" :disabled="language==='tw'" @click="handleSetLanguage('tw')">繁體中文</el-menu-item>
+        <el-menu-item index="2-3" :disabled="language==='en'" @click="handleSetLanguage('en')">English</el-menu-item>
       </el-submenu>
       <el-submenu index="3" :popper-append-to-body="false">
         <template slot="title">
@@ -60,6 +60,7 @@
 </template>
 
 <script>
+
 import { mapState, mapMutations } from 'vuex'
 
 export default {
@@ -70,13 +71,38 @@ export default {
     }
   },
   computed: {
-    ...mapState(['asideTop', 'asideFold', 'controlOpen'])
+    ...mapState('app', ['language', 'asideTop', 'asideFold', 'controlOpen'])
   },
   methods: {
-    ...mapMutations({
-      asideFoldHandler: 'asideFoldMutation',
-      controlOpenHandler: 'controlOpenMutation'
-    })
+    asideFoldHandler () {
+
+    },
+    controlOpenHandler () {
+
+    },
+    ...mapMutations('app', ['asideFoldHandler', 'controlOpenHandler']),
+
+    handleSetLanguage (lang) {
+      this.$i18n.locale = lang
+      this.$store.dispatch('app/setLanguage', lang)
+      this.$message({
+        message: 'Switch Language Success',
+        type: 'success'
+      })
+    },
+    toggleFullScreen () {
+      let doc = window.document
+      let docEl = doc.documentElement
+
+      let requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen
+      let cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen
+
+      if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+        requestFullScreen.call(docEl)
+      } else {
+        cancelFullScreen.call(doc)
+      }
+    }
   }
 }
 </script>

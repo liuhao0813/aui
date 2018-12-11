@@ -31,7 +31,7 @@
           </el-breadcrumb>
         </div>
         <div v-show="mainType === 'standard'" class="aui-main__bd">
-          <transition mode="out-in" name="fade">
+          <transition name="el-fade-in">
             <router-view />
           </transition>
         </div>
@@ -44,7 +44,7 @@
             <el-dropdown-item>关闭全部标签页</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-tabs v-show="mainType === 'tabs'" class="aui-main-tabs aui-tabs" v-model="mainTabsActive">
+        <el-tabs v-show="mainType === 'tabs'" class="aui-main-tabs aui-tabs" :value="mainTabsActive">
           <el-tab-pane label="home" name="home" :closable="false" class="aui-main-tabs__pane--full">
             <svg slot="label" class="aui-content--tabs-icon-nav icon-svg" aria-hidden="true"><use xlink:href="#icon-home"></use></svg>
             <transition mode="out-in" name="fade">
@@ -63,18 +63,18 @@
           <el-tab-pane label="标签页10" name="10" closable>标签页10</el-tab-pane>
         </el-tabs>
       </main>
-        <layout-footer/>
+      <layout-footer/>
   </div>
 </template>
 
 <script>
 
-import { mapState } from 'vuex'
+import LayoutHeader from '@/components/template/LayoutHeader'
+import LayoutAside from '@/components/template/Sidebar'
+import LayoutControl from '@/components/template/LayoutControl'
+import LayoutFooter from '@/components/template/LayoutFooter'
 
-import LayoutHeader from '@/components/LayoutHeader'
-import LayoutAside from '@/components/LayoutAside'
-import LayoutControl from '@/components/LayoutControl'
-import LayoutFooter from '@/components/LayoutFooter'
+import { mapState } from 'vuex'
 
 export default {
   data () {
@@ -83,7 +83,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['headerSkin', 'asideSkin', 'wrapperCenter', 'headerFixed',
+    ...mapState('app', ['headerSkin', 'asideSkin', 'wrapperCenter', 'headerFixed',
       'asideFixed', 'asideFold', 'asideTop', 'controlFixed', 'controlOpen',
       'mainTabsHeaderFixed', 'mainType', 'mainTabsActive'])
   },
@@ -103,10 +103,4 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .2s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 </style>

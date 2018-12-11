@@ -77,23 +77,39 @@ export default {
     }
   },
   computed: {
-    ...mapState(['headerFixed', 'controlFixed', 'controlTabsActive', 'wrapperCenter',
+    ...mapState('app', ['headerFixed', 'controlFixed', 'controlTabsActive', 'wrapperCenter',
       'headerSkin', 'asideFixed', 'asideSkin', 'asideTop',
       'mainType', 'mainTabsHeaderFixed'])
   },
   methods: {
-    ...mapMutations({
-      controlOpenHandler: 'controlOpenMutation',
-      wrapperCenterHandler: 'wrapperCenterMutation',
-      headerFixedHandler: 'headerFixedMutation',
-      headerSkinHandler: 'headerSkinMutation',
-      asideFixedHandler: 'asideFixedMutation',
-      asideSkinHandler: 'asideSkinMutation',
-      asideTopHandler: 'asideTopMutation',
-      controlFixedHandler: 'controlFixedMutation',
-      mainTypeHandler: 'mainTypeMutation',
-      mainTabsHeaderFixedHandler: 'mainTabsHeaderFixedMutation'
-    }),
+    controlOpenHandler () {
+
+    },
+    wrapperCenterHandler () {
+
+    },
+    headerFixedHandler () {
+
+    },
+    headerSkinHandler () {
+
+    },
+    asideTopHandler () {
+
+    },
+    controlFixedHandler () {
+
+    },
+    mainTypeHandler () {
+
+    },
+    mainTabsHeaderFixedHandler () {
+
+    },
+
+    ...mapMutations('app', ['controlOpenHandler', 'wrapperCenterHandler', 'headerSkinHandler',
+      'asideFixedHandler', 'asideSkinHandler', 'asideTopHandler', 'controlFixedHandler',
+      'mainTypeHandler', 'mainTabsHeaderFixedHandler']),
     skinChangeHandle () {
 
     }
